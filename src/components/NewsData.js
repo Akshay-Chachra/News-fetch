@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Categories from "./Categories";
 import News from "./News";
 import Spinner from "./Spinner";
 
@@ -12,11 +11,12 @@ function NewsData(props) {
 
   const fetchData = async () => {
     const API_KEY = "fb75881c55f84045934af853a53c42e3";
-    const API_URL = `https://newsapi.org/v2/top-headlines?country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
+    const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
     setLoading(true);
     const response = await fetch(API_URL);
     const data = await response.json();
     setTotalResults(data.totalResults);
+    setPage(page+1);
     setLoading(false);
     return setUser(data.articles);
   };
@@ -29,7 +29,7 @@ function NewsData(props) {
     if (page <= 1) {
     } else {
       const API_KEY = "fb75881c55f84045934af853a53c42e3";
-      const API_URL = `https://newsapi.org/v2/top-headlines?country=${props.country}&page=${
+      const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${
       page - 1
       }&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
       setLoading(true);
@@ -46,7 +46,7 @@ function NewsData(props) {
     } else {
       
       const API_KEY = "fb75881c55f84045934af853a53c42e3";
-      const API_URL = `https://newsapi.org/v2/top-headlines?country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
+      const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
       setLoading(true);
       const response = await fetch(API_URL);
       const data = await response.json();
@@ -68,12 +68,12 @@ function NewsData(props) {
     return setUser(data.articles);
   }
   return (
-    <div className="container main-container">
+    <div className="container">
       <div className="row">
-        <h1 className="text-center">Top headlines</h1>
+        <h1 className="page-title text-center my-5">News Fetch - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} headlines</h1>
         {loading && <Spinner />}
         {user &&
-          user.map((article, index) => {
+          !loading&&user.map((article, index) => {
             return (
               <News
                 key={index}
@@ -91,6 +91,7 @@ function NewsData(props) {
                 }
                 detail={article.url}
                 author={article.author ? "News By: " + article.source.name : ""}
+                time= {"Date: " + article.publishedAt.slice(0,10)}
               />
             );
           })}

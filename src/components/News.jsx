@@ -9,6 +9,7 @@ function News(props) {
           <h5 className="card-title">{props.title}</h5>
           <p className="card-text">{props.description}</p>
           <h6 className="card-text bold">{props.author}</h6>
+          <p className="card-text date">{props.time}</p>
           <a href={props.detail} className="btn">
             Details
           </a>
