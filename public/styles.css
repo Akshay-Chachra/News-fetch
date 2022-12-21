@@ -7,10 +7,7 @@ body {
   width: 100%;
 }
 .navbar {
-   
-  /* background: rgba(48, 186, 193, 0.95);
-   */
-   background-color: black;
+  background-color: #00adb5;
   height: 55px;
 }
 .navbar-collapse {
@@ -23,9 +20,16 @@ body {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
+.icondog{
+  width: 50px;
+  height: 50px;
+  color: white;
+  filter: invert(1);
+}
 .navbar-brand {
   font-family: "Rubik Gemstones", cursive;
   color: white;
+  pointer-events: none;
 }
 .card {
   height: max-content;
@@ -45,106 +49,13 @@ body {
   font-weight: bolder;
 }
 .colorbar {
-  width: 100%;
+  background-image:
+  linear-gradient(
+    to top right, 
+    red, #f06d06
+  );
   height: 10px;
-
-  /* ff 3.6+ */
-  background: -moz-linear-gradient(
-    121deg,
-    rgba(255, 255, 0, 1) 0%,
-    rgba(244, 67, 54, 1) 0%,
-    rgba(233, 30, 99, 1) 10%,
-    rgba(156, 39, 176, 1) 19%,
-    rgba(103, 58, 183, 1) 29%,
-    rgba(33, 150, 243, 1) 38%,
-    rgba(3, 169, 244, 1) 47%,
-    rgba(0, 188, 212, 1) 55%,
-    rgba(0, 150, 136, 1) 64%,
-    rgba(76, 175, 80, 1) 73%,
-    rgba(139, 192, 74, 1) 81%,
-    rgba(205, 220, 57, 1) 87%,
-    rgba(255, 235, 59, 1) 91%,
-    rgba(255, 193, 7, 1) 100%
-  );
-
-  /* safari 5.1+,chrome 10+ */
-  background: -webkit-linear-gradient(
-    121deg,
-    rgba(255, 255, 0, 1) 0%,
-    rgba(244, 67, 54, 1) 0%,
-    rgba(233, 30, 99, 1) 10%,
-    rgba(156, 39, 176, 1) 19%,
-    rgba(103, 58, 183, 1) 29%,
-    rgba(33, 150, 243, 1) 38%,
-    rgba(3, 169, 244, 1) 47%,
-    rgba(0, 188, 212, 1) 55%,
-    rgba(0, 150, 136, 1) 64%,
-    rgba(76, 175, 80, 1) 73%,
-    rgba(139, 192, 74, 1) 81%,
-    rgba(205, 220, 57, 1) 87%,
-    rgba(255, 235, 59, 1) 91%,
-    rgba(255, 193, 7, 1) 100%
-  );
-
-  /* opera 11.10+ */
-  background: -o-linear-gradient(
-    121deg,
-    rgba(255, 255, 0, 1) 0%,
-    rgba(244, 67, 54, 1) 0%,
-    rgba(233, 30, 99, 1) 10%,
-    rgba(156, 39, 176, 1) 19%,
-    rgba(103, 58, 183, 1) 29%,
-    rgba(33, 150, 243, 1) 38%,
-    rgba(3, 169, 244, 1) 47%,
-    rgba(0, 188, 212, 1) 55%,
-    rgba(0, 150, 136, 1) 64%,
-    rgba(76, 175, 80, 1) 73%,
-    rgba(139, 192, 74, 1) 81%,
-    rgba(205, 220, 57, 1) 87%,
-    rgba(255, 235, 59, 1) 91%,
-    rgba(255, 193, 7, 1) 100%
-  );
-
-  /* ie 6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFC107', endColorstr='#FFFF00', GradientType=0 );
-
-  /* ie 10+ */
-  background: -ms-linear-gradient(
-    121deg,
-    rgba(255, 255, 0, 1) 0%,
-    rgba(244, 67, 54, 1) 0%,
-    rgba(233, 30, 99, 1) 10%,
-    rgba(156, 39, 176, 1) 19%,
-    rgba(103, 58, 183, 1) 29%,
-    rgba(33, 150, 243, 1) 38%,
-    rgba(3, 169, 244, 1) 47%,
-    rgba(0, 188, 212, 1) 55%,
-    rgba(0, 150, 136, 1) 64%,
-    rgba(76, 175, 80, 1) 73%,
-    rgba(139, 192, 74, 1) 81%,
-    rgba(205, 220, 57, 1) 87%,
-    rgba(255, 235, 59, 1) 91%,
-    rgba(255, 193, 7, 1) 100%
-  );
-
-  /* global 94%+ browsers support */
-  background: linear-gradient(
-    121deg,
-    rgba(255, 255, 0, 1) 0%,
-    rgba(244, 67, 54, 1) 0%,
-    rgba(233, 30, 99, 1) 10%,
-    rgba(156, 39, 176, 1) 19%,
-    rgba(103, 58, 183, 1) 29%,
-    rgba(33, 150, 243, 1) 38%,
-    rgba(3, 169, 244, 1) 47%,
-    rgba(0, 188, 212, 1) 55%,
-    rgba(0, 150, 136, 1) 64%,
-    rgba(76, 175, 80, 1) 73%,
-    rgba(139, 192, 74, 1) 81%,
-    rgba(205, 220, 57, 1) 87%,
-    rgba(255, 235, 59, 1) 91%,
-    rgba(255, 193, 7, 1) 100%
-  );
+  width: 100%;
 }
 .page-title {
   font-family: "Montserrat", sans-serif;
@@ -155,4 +66,10 @@ body {
 .date {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
+}
+.prevNext{
+  background-color: #00adb5;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+
 }

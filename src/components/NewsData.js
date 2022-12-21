@@ -99,7 +99,7 @@ function NewsData(props) {
       <div className="container my-5 d-flex justify-content-between">
         <button
           disabled={page <= 1}
-          className="btn btn-dark left "
+          className="btn prevNext left"
           onClick={handlePrevious}
         >
           Previous
@@ -108,7 +108,7 @@ function NewsData(props) {
           disabled={page + 1 > Math.ceil(totalresults / props.pageSize)}
           d-flex
           justify-content-between
-          className="btn btn-dark right"
+          className="btn prevNext right"
           onClick={handleNext}
         >
           Next

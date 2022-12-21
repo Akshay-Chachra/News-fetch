@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import icon from "./dog-fetching.svg"
 function Navbar() {
 
   // const [activePage , setActivePage] = useState("/")
@@ -15,6 +16,7 @@ function Navbar() {
         <div className="container">
           <Link className="navbar-brand" to="#">
             <div className="active-bar"></div>
+            <img className="icondog" src={icon}/>
             NEWS FETCH
           </Link>
           <button
@@ -29,18 +31,18 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item" onClick={activeTabs}>
+            <ul className="navbar-nav ms-5 mb-2 mb-lg-0">
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/">
                   General
                 </Link>
               </li>
-              <li className="nav-item" onClick={activeTabs}>
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/business">
                   Business
                 </Link>
               </li>
-              <li className="nav-item" onClick={activeTabs}>
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link
                   className="nav-link"
                   aria-current="page"
@@ -49,22 +51,22 @@ function Navbar() {
                   Entertainment
                 </Link>
               </li>
-              <li className="nav-item" onClick={activeTabs}>
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/health">
                   Health
                 </Link>
               </li>
-              <li className="nav-item" onClick={activeTabs}>
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/science">
                   Science
                 </Link>
               </li>
-              <li className="nav-item" onClick={activeTabs}>
+              <li className="nav-item ms-3" onClick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/sports">
                   Sports
                 </Link>
               </li>
-              <li className="nav-item" onclick={activeTabs}>
+              <li className="nav-item ms-3" onclick={activeTabs}>
                 <Link className="nav-link" aria-current="page" to="/technology">
                   Technology
                 </Link>
@@ -73,6 +75,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+      
     </div>
   );
 }
