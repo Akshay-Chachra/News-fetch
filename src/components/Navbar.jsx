@@ -1,22 +1,21 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import icon from "./dog-fetching.svg"
-function Navbar() {
+import icon from "./dog-fetching.svg";
+function Navbar(props) {
+  
+  function handleClick() {
+     
+    console.log(this.innerHTML);
+  }
 
-  // const [activePage , setActivePage] = useState("/")
-  const activeTabs = () =>(
-    window.location.pathname === "/sports" ? document.getElementsByClassName(".navbar").style.backgroundColor = "black" : null
-    
-  )
   return (
-    
     <div className="sticky-top">
       <div className="colorbar"></div>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg" id="nav">
         <div className="container">
           <Link className="navbar-brand" to="#">
             <div className="active-bar"></div>
-            <img className="icondog" src={icon}/>
+            <img className="icondog" src={icon} />
             NEWS FETCH
           </Link>
           <button
@@ -32,42 +31,73 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-5 mb-2 mb-lg-0">
-              <li className="nav-item ms-3" onClick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/"
+                  onClick={handleClick}
+                >
                   General
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/business">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/business"
+                  onClick={handleClick}
+                >
                   Business
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={activeTabs}>
+              <li className="nav-item ms-3">
                 <Link
                   className="nav-link"
                   aria-current="page"
                   to="/entertainment"
+                  onClick={handleClick}
                 >
                   Entertainment
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/health">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/health"
+                  onClick={handleClick}
+                >
                   Health
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/science">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/science"
+                  onClick={handleClick}
+                >
                   Science
                 </Link>
               </li>
-              <li className="nav-item ms-3" onClick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/sports">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/sports"
+                  onClick={handleClick}
+                >
                   Sports
                 </Link>
               </li>
-              <li className="nav-item ms-3" onclick={activeTabs}>
-                <Link className="nav-link" aria-current="page" to="/technology">
+              <li className="nav-item ms-3">
+                <Link
+                  className="nav-link"
+                  aria-current="page"
+                  to="/technology"
+                  onClick={handleClick}
+                >
                   Technology
                 </Link>
               </li>
@@ -75,7 +105,6 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      
     </div>
   );
 }

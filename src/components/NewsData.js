@@ -6,18 +6,23 @@ function NewsData(props) {
   const [user, setUser] = useState([]);
   const [page, setPage] = useState(0);
   const [totalresults, setTotalResults] = useState(0);
-  const [loading, setLoading] = useState(false);
   
 
   const fetchData = async () => {
-    const API_KEY = "fb75881c55f84045934af853a53c42e3";
-    const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
-    setLoading(true);
+    // const API_KEY = "fb75881c55f84045934af853a53c42e3";
+    const API_KEY = "6ace59f409bf489ebafa2cfc1847955b";
+    const API_URL = `https://newsapi.org/v2/top-headlines?category=${
+      props.category
+    }&country=${props.country}&page=${page + 1}&pageSize=${
+      props.pageSize
+    }&apiKey=${API_KEY}`;
+    props.isLoading(true);
     const response = await fetch(API_URL);
+    props.renderpage(window.location.pathname)
     const data = await response.json();
     setTotalResults(data.totalResults);
-    setPage(page+1);
-    setLoading(false);
+    setPage(page + 1);
+    props.isLoading(false);
     return setUser(data.articles);
   };
 
@@ -28,15 +33,19 @@ function NewsData(props) {
   const handlePrevious = async () => {
     if (page <= 1) {
     } else {
-      const API_KEY = "fb75881c55f84045934af853a53c42e3";
-      const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${
-      page - 1
-      }&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
-      setLoading(true);
+      // const API_KEY = "fb75881c55f84045934af853a53c42e3";
+      const API_KEY = "6ace59f409bf489ebafa2cfc1847955b";
+      const API_URL = `https://newsapi.org/v2/top-headlines?category=${
+        props.category
+      }&country=${props.country}&page=${page - 1}&pageSize=${
+        props.pageSize
+      }&apiKey=${API_KEY}`;
+      props.isLoading(true);
       const response = await fetch(API_URL);
+      props.renderpage(window.location.pathname)
       const data = await response.json();
       setPage(page - 1);
-      setLoading(false);
+      props.isLoading(false);
       return setUser(data.articles);
     }
   };
@@ -44,36 +53,36 @@ function NewsData(props) {
   const handleNext = async () => {
     if (page + 1 > Math.ceil(totalresults / props.pageSize)) {
     } else {
-      
-      const API_KEY = "fb75881c55f84045934af853a53c42e3";
-      const API_URL = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
-      setLoading(true);
+      // const API_KEY = "fb75881c55f84045934af853a53c42e3";
+      const API_KEY = "6ace59f409bf489ebafa2cfc1847955b";
+      const API_URL = `https://newsapi.org/v2/top-headlines?category=${
+        props.category
+      }&country=${props.country}&page=${page + 1}&pageSize=${
+        props.pageSize
+      }&apiKey=${API_KEY}`;
+      props.isLoading(true);
       const response = await fetch(API_URL);
+      props.renderpage(window.location.pathname)
       const data = await response.json();
-      setLoading(false);
+      props.isLoading(false);
       setPage(page + 1);
       return setUser(data.articles);
     }
   };
 
-  const categories = async () =>{
 
-    const API_KEY = "fb75881c55f84045934af853a53c42e3";
-    const API_URL = `https://newsapi.org/v2/everything?q=${props.category}&page=${page + 1}&pageSize=${props.pageSize}&apiKey=${API_KEY}`;
-    setLoading(true);
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    setTotalResults(data.totalResults);
-    setLoading(false);
-    return setUser(data.articles);
-  }
   return (
     <div className="container">
       <div className="row">
-        <h1 className="page-title text-center my-5">News Fetch - Top {props.category.charAt(0).toUpperCase() + props.category.slice(1)} headlines</h1>
-        {loading && <Spinner />}
+        <h1 className="page-title text-center my-5">
+          News Fetch - Top{" "}
+          {props.category.charAt(0).toUpperCase() + props.category.slice(1)}{" "}
+          headlines
+        </h1>
+        {props.loadingvalue && <Spinner />}
         {user &&
-          !loading&&user.map((article, index) => {
+          !props.loadingvalue &&
+          user.map((article, index) => {
             return (
               <News
                 key={index}
@@ -91,7 +100,7 @@ function NewsData(props) {
                 }
                 detail={article.url}
                 author={article.author ? "News By: " + article.source.name : ""}
-                time= {"Date: " + article.publishedAt.slice(0,10)}
+                time={article.publishedAt.slice(0, 10)}
               />
             );
           })}
