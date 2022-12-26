@@ -1,17 +1,15 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import icon from "./dog-fetching.svg";
+import WorldClock from "./WorldClock";
 function Navbar(props) {
-  
-  function handleClick() {
-     
-    console.log(this.innerHTML);
-  }
-
   return (
     <div className="sticky-top">
       <div className="colorbar"></div>
-      <nav className="navbar navbar-expand-lg" id="nav">
+      <nav
+        className="navbar navbar-expand-lg"
+        id="nav"
+        style={{ backgroundColor: props.color }}
+      >
         <div className="container">
           <Link className="navbar-brand" to="#">
             <div className="active-bar"></div>
@@ -31,79 +29,50 @@ function Navbar(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-5 mb-2 mb-lg-0">
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/">
                   General
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/business"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/business">
                   Business
                 </Link>
               </li>
-              <li className="nav-item ms-3">
+              <li className="nav-item">
                 <Link
                   className="nav-link"
                   aria-current="page"
                   to="/entertainment"
-                  onClick={handleClick}
                 >
                   Entertainment
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/health"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/health">
                   Health
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/science"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/science">
                   Science
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/sports"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/sports">
                   Sports
                 </Link>
               </li>
-              <li className="nav-item ms-3">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/technology"
-                  onClick={handleClick}
-                >
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/technology">
                   Technology
                 </Link>
               </li>
             </ul>
           </div>
+          <WorldClock/>
         </div>
+        
       </nav>
     </div>
   );

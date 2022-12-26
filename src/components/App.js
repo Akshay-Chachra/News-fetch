@@ -1,6 +1,7 @@
 
 import NewsData from "./NewsData";
 import Navbar from "./Navbar";
+import WorldClock from "./WorldClock"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -15,11 +16,12 @@ function App() {
 
       <Router> 
 
-        <Navbar loadingvalue={loading} currentPage={path}/>
+        <Navbar loadingvalue={loading} currentPage={path} />
+
         <Routes>
           
           <Route exact path="/"
-            element={<NewsData key="general" pageSize={5} category={"general"} country="in" isLoading={setLoading} loadingvalue={loading}  renderpage={setPath}/>}
+            element={<NewsData key="general" pageSize={5} category={"general"} country="in" isLoading={setLoading} loadingvalue={loading}  renderpage={setPath} />}
           />
           <Route exact path="/business"
              
@@ -45,7 +47,14 @@ function App() {
              
             element={<NewsData key="technology" pageSize={5} category={"technology"} country="in" isLoading={setLoading} loadingvalue={loading}  renderpage={setPath}/>}
           />
+          <Route exact path="/worldclock"
+             
+             element={<WorldClock/>}
+           />
+
+
         </Routes>
+         
       </Router>
     </div>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function News(props) {
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12 my-4">
+    <div className="col-lg-4 col-md-6 col-sm-12 my-4 p-2">
       <div className="date">
         <p className="datepara">{props.time}</p>
       </div>
