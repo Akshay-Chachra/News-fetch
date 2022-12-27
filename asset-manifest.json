@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/News-fetch/static/js/main.b922b52f.js",
+    "static/media/spinner.gif": "/News-fetch/static/media/spinner.10cadc094adb38dca5da.gif",
+    "static/media/dog-fetching.svg": "/News-fetch/static/media/dog-fetching.24e9a37ab1c4bf91ba32db9897747bda.svg",
+    "index.html": "/News-fetch/index.html",
+    "main.b922b52f.js.map": "/News-fetch/static/js/main.b922b52f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b922b52f.js"
+  ]
+}
