@@ -73,7 +73,7 @@ function NewsData(props) {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row my-5">
         <h1 className="page-title text-center my-5">
           News Fetch - Top{" "}
           {props.category.charAt(0).toUpperCase() + props.category.slice(1)}{" "}
