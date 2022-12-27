@@ -20,7 +20,7 @@ function App() {
 
         <Routes>
           
-          <Route exact path="/"
+          <Route exact path="/News-fetch"
             element={<NewsData key="general" pageSize={6} category={"general"} country="in" isLoading={setLoading} loadingvalue={loading}  renderpage={setPath} />}
           />
           <Route exact path="/business"
